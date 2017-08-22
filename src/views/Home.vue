@@ -22,8 +22,7 @@ export default {
     }
   },
   created () {
-    console.log(this.$http.options.root)
-    this.$http.get('doc/schema').then((response) => {
+    this.$http.get('my/recent').then((response) => {
       console.log(response)
     })
   }

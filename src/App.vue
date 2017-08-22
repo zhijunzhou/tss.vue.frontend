@@ -22,4 +22,10 @@ html, body, #app {
   margin: 0;
   padding: 0;
 }
+.page-content {
+  margin-top: 56px;
+}
+.card {
+  width: 100%;
+}
 </style>

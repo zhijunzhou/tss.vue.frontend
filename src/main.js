@@ -16,7 +16,9 @@ Vue.use(VueResource)
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
-Vue.http.options.root = 'https://c4w19235.americas.hpqcorp.net/'
+Vue.http.options.root = 'https://localhost/tss/api'
+// Vue.http.options.xhr = { withCredentials: true }
+// Vue.http.headers.common['Authorization'] = 'Basic emhpanVuLnpob3VAaHBlLmNvbTpGZW5nMTk5MiY='
 
 new Vue({
   el: '#app',

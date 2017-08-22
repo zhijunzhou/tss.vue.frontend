@@ -4,6 +4,7 @@ import Home from '@/views/Home'
 import CSHome from '@/views/CSHome'
 import AllOppty from '@/views/AllOppty'
 import MyOppty from '@/views/MyOppty'
+import Permission from '@/views/Permission'
 
 Vue.use(Router)
 
@@ -25,6 +26,10 @@ export default new Router({
       path: '/oppties/all',
       name: 'all',
       component: AllOppty
+    }, {
+      path: '/permission/definition',
+      name: 'permission',
+      component: Permission
     }
   ]
 })
