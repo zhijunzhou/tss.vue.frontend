@@ -5,6 +5,7 @@
 </template>
 
 <script>
+// no reference
 export default {
   name: 'CustomDropdown',
   props: ['options', 'selectedOptions']

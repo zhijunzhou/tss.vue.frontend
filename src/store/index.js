@@ -369,31 +369,6 @@ const store = new Vuex.Store({
       ],
       groups: [],
       opportunity: opportunity
-    },
-    guid () {
-      function s4 () {
-        return Math.floor((1 + Math.random()) * 0x10000)
-          .toString(16)
-          .substring(1)
-      }
-      return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4()
-    },
-    assignmentTempl: {
-      'permission': 'write',
-      'priority': 0,
-      'govTrack': [],
-      'pursuitClassfication': [],
-      'dxcSolnPath': [],
-      'involvedOfferingFamilies': [],
-      'gbu': [],
-      'salesStage': [],
-      'role': [],
-      'group': [],
-      'comment': null
-    },
-    sectionTempl: {
-      basic: [],
-      properties: {}
     }
   }
 })

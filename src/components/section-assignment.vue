@@ -6,7 +6,7 @@
 					<b-tabs small card ref="tabs">
 						<b-tab title="Basic" v-if="section.basic">
 							<div v-for="(factor, idx) in section.basic" class="mb-2">
-								<permission-factors :factor="factor" :idx="idx"></permission-factors>
+								<permission-factors :factor="factor" :idx="idx" :deleteAssignment="remove"></permission-factors>
 							</div>
 							<add-assignment :node="section.basic"></add-assignment>
 						</b-tab>
@@ -50,6 +50,11 @@ export default {
 			if (typeof this.section.properties === 'object') {
 				keys = Object.keys(this.section.properties)
 				this.$set(this.section.properties, 'new' + keys.length, [this.$store.state.assignmentTempl])
+			}
+		},
+		remove: function (idx, event) {
+			if (confirm('Are you sure to delete this assignment?')) {
+				this.section.basic.splice(idx, 1)
 			}
 		}
 	},

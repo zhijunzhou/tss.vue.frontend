@@ -34,10 +34,13 @@ export default {
 	},
 	methods: {
 		addSection: function () {
-			var keys = []
+			const tpl = {
+				basic: [],
+				properties: {}
+			}
 			if (typeof this.odocument.sections === 'object') {
-				keys = Object.keys(this.odocument.sections)
-				this.$set(this.odocument.sections, 'new' + keys.length, this.$store.state.sectionTempl)
+				const keys = Object.keys(this.odocument.sections)
+				this.$set(this.odocument.sections, 'new' + keys.length, tpl)
 			}
 		}
 	},

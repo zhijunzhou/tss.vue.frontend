@@ -6,7 +6,7 @@
 </template>
 
 <script>
-
+// no reference
 export default {
   name: 'AddProperty',
   props: ['properties']

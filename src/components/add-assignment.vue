@@ -3,7 +3,6 @@
 		<b-btn variant="outline-success" @click="addPermissionAssignment">Add Permission Assignment</b-btn>
 	</div>
 </template>
-
 <script>
 
 export default {
@@ -11,7 +10,20 @@ export default {
   props: ['node'],
 	methods: {
 		addPermissionAssignment: function () {
-			this.node.push(this.$store.state.assignmentTempl)
+			const tpl = {
+				'permission': 'write',
+				'priority': 0,
+				'govTrack': [],
+				'pursuitClassfication': [],
+				'dxcSolnPath': [],
+				'involvedOfferingFamilies': [],
+				'gbu': [],
+				'salesStage': [],
+				'role': [],
+				'group': [],
+				'comment': null
+			}
+			this.node.push(tpl)
 		}
 	}
 }

@@ -2,7 +2,7 @@
 	<div>
 		<b-nav pills vertical v-for="(section, name) in odocument.sections" :key="name">
 			<b-nav-item @click="switchSection(name, $event)" v-if="opportunity[name]">
-				({{opportunity[name].sid}}) {{opportunity[name].title}} 
+				{{opportunity[name].title}} 
 			</b-nav-item>
 			<b-nav-item @click="switchSection(name, $event)" v-else-if="name.indexOf('new') !== -1">
 				{{name}}
