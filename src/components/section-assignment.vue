@@ -5,13 +5,17 @@
 				<b-card no-block>
 					<b-tabs small card ref="tabs">
 						<b-tab title="Basic" v-if="section.basic">
-							<div v-for="factor in section.basic">
-								<permission-factors :factor="factor"></permission-factors>
+							<div v-for="(factor, idx) in section.basic" class="mb-2">
+								<permission-factors :factor="factor" :idx="idx"></permission-factors>
 							</div>
+							<add-assignment :node="section.basic"></add-assignment>
 						</b-tab>
 						<b-tab title="Properties">
 							<div class="row">
 								<div class="col-md-2 text-nowrap">
+									<div class="form-group text-left mb-2">
+										<b-btn variant="outline-success" @click="addProperty">Add Property</b-btn>
+									</div>
 									<section-properties :properties="section.properties" :actProp.sync="activedProp"></section-properties>
 								</div>
 								<div class="col-md-10" v-if="activedProp">
@@ -30,6 +34,7 @@
 import PermissionFactors from '@/components/permission-factors'
 import SectionProperties from '@/components/section-properties'
 import PropertyAssignment from '@/components/property-assignment'
+import AddAssignment from '@/components/add-assignment'
 
 export default {
   name: 'SectionAssignment',
@@ -39,10 +44,20 @@ export default {
 			activedProp: undefined
 		}
 	},
+	methods: {
+		addProperty: function () {
+			var keys = []
+			if (typeof this.section.properties === 'object') {
+				keys = Object.keys(this.section.properties)
+				this.$set(this.section.properties, 'new' + keys.length, [this.$store.state.assignmentTempl])
+			}
+		}
+	},
 	components: {
     PermissionFactors,
 		SectionProperties,
-		PropertyAssignment
+		PropertyAssignment,
+		AddAssignment
   }
 }
 </script>

@@ -1,6 +1,9 @@
 <template>
 	<div class="row">
 		<div class="col-md-3">
+			<div class="form-group text-left mb-2">
+				<b-btn variant="outline-success" @click="addSection">Add Section</b-btn>
+			</div>
 			<document-basic :odocument="odocument" :acsctn.sync="activedSection"></document-basic>
 			<document-sections :odocument="odocument" :acsctn.sync="activedSection"></document-sections>
 		</div>
@@ -27,6 +30,15 @@ export default {
   data () {
     return {
 			activedSection: undefined
+		}
+	},
+	methods: {
+		addSection: function () {
+			var keys = []
+			if (typeof this.odocument.sections === 'object') {
+				keys = Object.keys(this.odocument.sections)
+				this.$set(this.odocument.sections, 'new' + keys.length, this.$store.state.sectionTempl)
+			}
 		}
 	},
   components: {

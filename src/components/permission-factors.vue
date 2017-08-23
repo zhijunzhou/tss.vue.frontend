@@ -1,6 +1,10 @@
 <template>
-	<div>		
-		<b-card :title="factor.permission" class="mb-2">
+	<div>
+	<b-btn block v-b-toggle="'collapse_' + idx" class="text-left text-bold">
+		<b>{{factor.permission}} / {{factor.priority}} / {{factor.comment}}</b>
+	</b-btn>
+	<b-collapse :id="'collapse_' + idx">
+		<b-card class="mb-2">
 			<hr />
 			<div class="card-text row">
 				<div class="col-md-6">
@@ -44,7 +48,8 @@
 					</div>
 				</div>
 			</div>
-		</b-card>
+		</b-card>		
+	</b-collapse>
 	</div>
 </template>
 
@@ -53,7 +58,7 @@ import CheckboxGroup from '@/components/checkbox-group'
 
 export default {
   name: 'PermissionFactors',
-  props: ['factor'],
+  props: ['factor', 'idx'],
 	data () {
     return {
       pursuitCatalogs: this.$store.state.options.pursuitCatalogs,

@@ -4,6 +4,9 @@
 			<b-nav-item @click="switchSection(name, $event)" v-if="opportunity[name]">
 				({{opportunity[name].sid}}) {{opportunity[name].title}} 
 			</b-nav-item>
+			<b-nav-item @click="switchSection(name, $event)" v-else-if="name.indexOf('new') !== -1">
+				{{name}}
+			</b-nav-item>
 		</b-nav>
 	</div>
 </template>

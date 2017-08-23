@@ -1,19 +1,22 @@
 <template>
 	<div>
-		<div v-for="factor in basic">
-			<permission-factors :factor="factor"></permission-factors>
+		<div v-for="(factor, idx) in basic" class="mb-2">		
+			<permission-factors :factor="factor" :idx="idx"></permission-factors>
 		</div>
+		<add-assignment :node="basic"></add-assignment>
 	</div>
 </template>
 
 <script>
 import PermissionFactors from '@/components/permission-factors'
+import AddAssignment from '@/components/add-assignment'
 
 export default {
   name: 'BasicAssignment',
   props: ['basic'],
 	components: {
-    PermissionFactors
+    PermissionFactors,
+		AddAssignment
   }
 }
 </script>
