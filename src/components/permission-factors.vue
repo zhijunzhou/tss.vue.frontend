@@ -28,29 +28,48 @@
 							</div>
 							<div class="form-group">
 								<label>Pursuit Catalog</label>
-								<checkbox-group :options="pursuitCatalogs" :checkedOptions="factor.pursuitClassfication"></checkbox-group>
+								<div v-for="(op, index) in pursuitCatalogs" :key="index">
+									<input type="checkbox" :value="op.value" v-model="factor.pursuitClassfication" />
+									<label>{{op.text}}</label>
+								</div>
 							</div>
 							<div class="form-group">
 								<label>Sales Stage</label>
-								<checkbox-group :options="salesStages" :checkedOptions="factor.salesStage"></checkbox-group>
+								<div v-for="(op, index) in salesStages" :key="index">
+									<input type="checkbox" :value="op.value" v-model="factor.salesStage" />
+									<label>{{op.text}}</label>
+								</div>
 							</div>
 							<div class="form-group">
 								<label>DXC Solution Path</label>
-								<checkbox-group :options="dxcSolnPaths" :checkedOptions="factor.dxcSolnPath"></checkbox-group>			
+								<div v-for="(op, index) in dxcSolnPaths" :key="index">
+									<input type="checkbox" :value="op.value" v-model="factor.dxcSolnPath" />
+									<label>{{op.text}}</label>
+								</div>
 							</div>
 							<div class="form-group">
 								<label>Involved Offering Families</label>
-								<checkbox-group :options="OfferingFamilies" :checkedOptions="factor.involvedOfferingFamilies"></checkbox-group>	
+								<div v-for="(op, index) in OfferingFamilies" :key="index">
+									<input type="checkbox" :value="op.value" v-model="factor.involvedOfferingFamilies" />
+									<label>{{op.text}}</label>
+								</div>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Roles</label>
-								<checkbox-group :options="roles" :checkedOptions="factor.role"></checkbox-group>				
+								<div v-for="(op, index) in roles" :key="index">
+									<input type="checkbox" :value="op.value" v-model="factor.role" />
+									<label>{{op.text}}</label>
+								</div>
 							</div>
 							<div class="form-group">
 								<label>Groups</label>
-								<checkbox-group :options="groups" :checkedOptions="factor.group"></checkbox-group>	
+								<div v-for="(op, index) in groups" :key="index">
+									<input type="checkbox" :value="op.value" v-model="factor.group" />
+									<label>{{op.text}}</label>
+								</div>
+								<!--<checkbox-group :options="groups" :checkedOptions="factor.group"></checkbox-group>-->	
 							</div>
 						</div>
 					</div>
