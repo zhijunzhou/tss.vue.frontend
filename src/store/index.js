@@ -7,6 +7,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     title: 'The Solution Source',
+    showWokingDialog: false,
     homelinks: {
       cs: {
         title: 'Client Solution',

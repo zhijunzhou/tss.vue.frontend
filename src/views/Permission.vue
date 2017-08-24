@@ -1,7 +1,7 @@
 <template>
   <div class="page-content">
     <b-card no-block>
-      <b-tabs small card ref="tabs">
+      <b-tabs lazy card ref="tabs">
         <b-tab title="Groups" v-if="permission.groups">        
           <permission-group :groups="permission.groups"></permission-group>
         </b-tab>
@@ -12,7 +12,7 @@
           <document-assignment :odocument="permission.document" :groups="permission.groups"></document-assignment>
         </b-tab>
       </b-tabs>
-    </b-card>
+    </b-card> 
   </div>
 </template>
 

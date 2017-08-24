@@ -17,8 +17,13 @@ Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
 Vue.http.options.root = 'https://localhost/tss/api'
-// Vue.http.options.xhr = { withCredentials: true }
-// Vue.http.headers.common['Authorization'] = 'Basic emhpanVuLnpob3VAaHBlLmNvbTpGZW5nMTk5MiY='
+
+Vue.http.interceptors.push(function (request, next) {
+  store.state.showWokingDialog = true
+  next(function (response) {
+    store.state.showWokingDialog = false
+  })
+})
 
 new Vue({
   el: '#app',
