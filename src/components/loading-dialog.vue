@@ -1,5 +1,5 @@
 <template>
-  <div id="loading-dialog">
+  <div id="loading-dialog" :style="{zIndex: hasHttpRequest}">
     <div class="bubblingG">
       <span id="bubblingG_1">
       </span>
@@ -14,15 +14,9 @@
 <script>
 export default {
   name: 'LoadingDialog',
-  data () {
-    return {
-      links: this.$store.state.homelinks,
-      menus: this.$store.state.menus
-    }
-  },
   computed: {
-    company () {
-      return this.$store.state.title
+    hasHttpRequest: function () {
+      return this.$store.state.showWokingDialog ? 1 : 0
     }
   }
 }
@@ -35,7 +29,6 @@ export default {
   left: 50%;
   margin-top: -50px;
   margin-left: -100px;
-  content: 'Loading...'
 }
 .bubblingG {
 	text-align: center;

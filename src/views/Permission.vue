@@ -2,17 +2,26 @@
   <div class="page-content">
     <b-card no-block>
       <b-tabs lazy card ref="tabs">
-        <b-tab title="Groups" v-if="permission.groups">        
+        <b-tab title="Groups" v-if="permission.groups">  
+          <div class="text-right mb-2">
+            <b-button @click="save">Save</b-button>      
+          </div>
           <permission-group :groups="permission.groups"></permission-group>
         </b-tab>
         <b-tab title="Features" v-if="permission.features">
+          <div class="text-right mb-2">
+            <b-button @click="save">Save</b-button>           
+          </div>
           <permission-feature :features="permission.features" :groups="permission.groups"></permission-feature>
         </b-tab>
         <b-tab title="Document" v-if="permission.document">
+          <div class="text-right mb-2">
+            <b-button @click="save">Save</b-button>          
+          </div>
           <document-assignment :odocument="permission.document" :groups="permission.groups"></document-assignment>
         </b-tab>
       </b-tabs>
-    </b-card> 
+    </b-card>    
   </div>
 </template>
 
@@ -39,6 +48,11 @@ export default {
   },
   destroyed () {
     this.$store.state.options.groups = []
+  },
+  methods: {
+    save: function () {
+      console.log(JSON.stringify(this.$data.permission))
+    }
   },
   components: {
     PermissionGroup,

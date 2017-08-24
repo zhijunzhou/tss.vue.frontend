@@ -1,14 +1,19 @@
 <template>
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-3 left-menu">
 			<div class="form-group text-left mb-2">
 				<b-btn variant="outline-success" @click="addSection">Add Section</b-btn>
 			</div>
 			<document-basic :odocument="odocument" :acsctn.sync="activedSection"></document-basic>
 			<document-sections :odocument="odocument" :acsctn.sync="activedSection"></document-sections>
 		</div>
-		<div class="col-md-9" v-if="activedSection">
-			<div v-if="activedSection === 'basic'">
+		<div class="col-md-9">
+			<div v-if="activedSection === undefined">
+				<b-alert variant="danger" show>
+					Please choose the section listed on left to assign its permission!
+				</b-alert>
+			</div>
+			<div v-else-if="activedSection === 'basic'">
 				<basic-assignment :basic="odocument.basic"></basic-assignment>
 			</div>
 			<div v-else>
@@ -52,3 +57,11 @@ export default {
   }
 }
 </script>
+<style>
+	.left-menu ul>li>a:focus {
+		background: lightgray;
+	}
+	.left-menu ul>li>a:hover {
+		background: darkgray;
+	}
+</style>

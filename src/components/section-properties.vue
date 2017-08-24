@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="left-menu">
 		<b-nav pills vertical v-for="(prop0, p) in properties" :key="p">
 			<b-nav-item @click="switchProp(p, $event)">{{p}}</b-nav-item>
 		</b-nav>

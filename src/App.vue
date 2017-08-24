@@ -24,6 +24,9 @@ html, body, #app {
   margin: 0;
   padding: 0;
 }
+* {
+  outline: none;
+}
 .page-content {
   margin-top: 56px;
 }
