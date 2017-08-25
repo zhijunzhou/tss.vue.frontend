@@ -101,6 +101,7 @@ export default {
     'name': 'soap',
     'path': 'solnStrategy.soap'
   },
+  /**
   '030301': {
     'title': 'Transformation Framework',
     'fullTitle': 'Transformation Framework',
@@ -299,6 +300,7 @@ export default {
     'name': 'key-non-delivery-risks',
     'path': 'riskAssumptionMitigation.keyNonDeliveryRisks'
   },
+  */
   '0601': {
     'title': 'Required Documents',
     'fullTitle': 'Required Documents',

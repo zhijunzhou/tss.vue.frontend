@@ -1,5 +1,5 @@
 <template>
-  <div id="loading-dialog" :style="{zIndex: hasHttpRequest}">
+  <div id="loading-dialog" v-if="hasHttpRequest === 1" :style="{zIndex: hasHttpRequest}">
     <div class="bubblingG">
       <span id="bubblingG_1">
       </span>
@@ -16,7 +16,7 @@ export default {
   name: 'LoadingDialog',
   computed: {
     hasHttpRequest: function () {
-      return this.$store.state.showWokingDialog ? 1 : 0
+      return this.$store.state.showWokingDialog ? 1 : -1
     }
   }
 }

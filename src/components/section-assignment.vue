@@ -1,7 +1,15 @@
 <template>
-	<div>
-		<b-card :title="name" tag="article" class="mb-12">
-			<div class="card-text row" v-if="section.basic">
+	<div v-if="section && section.basic">
+		<b-card tag="article" class="mb-12">
+			<div class="row">
+				<div class="col-md-6 text-left">
+					<h3>{{name}}</h3>
+				</div>
+				<div class="col-md-6 text-right mb-2">
+					<b-btn variant="outline-danger" @click="removeSection(name, $event)">Delete</b-btn>
+				</div>
+			</div>
+			<div class="card-text row" v-if="section && section.basic">
 				<b-card no-block>
 					<b-tabs small card ref="tabs">
 						<b-tab title="Basic" v-if="section.basic">
@@ -38,7 +46,7 @@ import AddAssignment from '@/components/add-assignment'
 
 export default {
   name: 'SectionAssignment',
-  props: ['section', 'name'],
+  props: ['section', 'name', 'removeSection'],
   data () {
     return {
 			activedProp: undefined

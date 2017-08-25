@@ -4,24 +4,24 @@
       <b-tabs lazy card ref="tabs">
         <b-tab title="Groups" v-if="permission.groups">  
           <div class="text-right mb-2">
-            <b-button @click="save">Save</b-button>      
+            <b-button @click="save('groups')">Save</b-button>      
           </div>
           <permission-group :groups="permission.groups"></permission-group>
         </b-tab>
         <b-tab title="Features" v-if="permission.features">
           <div class="text-right mb-2">
-            <b-button @click="save">Save</b-button>           
+            <b-button @click="save('features')">Save</b-button>           
           </div>
           <permission-feature :features="permission.features" :groups="permission.groups"></permission-feature>
         </b-tab>
-        <b-tab title="Document" v-if="permission.document">
+        <b-tab title="Document" v-if="permission.groups">
           <div class="text-right mb-2">
-            <b-button @click="save">Save</b-button>          
+            <b-button @click="save('document')">Save</b-button>          
           </div>
           <document-assignment :odocument="permission.document" :groups="permission.groups"></document-assignment>
         </b-tab>
       </b-tabs>
-    </b-card>    
+    </b-card>
   </div>
 </template>
 
@@ -34,12 +34,31 @@ export default {
   name: 'permission',
   data () {
     return {
-      permission: {}
+      permission: {},
+      opportunity: {}
     }
   },
   created () {
     this.$http.get('config/permission').then((response) => {
-      this.$data.permission = response.body.data
+      const oppty = this.$store.state.options.opportunity
+      var sections = response.body.data.document.sections
+      for (const sid in oppty) {
+        this.opportunity[oppty[sid].name] = {
+          sid: sid,
+          title: oppty[sid].title,
+          fullTitle: oppty[sid].fullTitle,
+          path: oppty[sid].path
+        }
+      }
+
+      for (const name in sections) {
+        if (!this.opportunity[name]) {
+          delete response.body.data.document.sections[name]
+        }
+      }
+
+      // this.$data.permission = response.body.data
+      this.$set(this.$data, 'permission', response.body.data)
       const groups = response.body.data.groups
       for (const gp in groups) {
         this.$store.state.options.groups.push({ text: gp, value: gp })
@@ -50,8 +69,14 @@ export default {
     this.$store.state.options.groups = []
   },
   methods: {
-    save: function () {
-      console.log(JSON.stringify(this.$data.permission))
+    save: function (part) {
+      console.trace(this.permission)
+      this.$http.post('update/permission', this.permission, {
+        emulateJSON: true
+      }).then((response) => {
+        console.log(response.body)
+        this.permission[part] = response.body[part]
+      })
     }
   },
   components: {

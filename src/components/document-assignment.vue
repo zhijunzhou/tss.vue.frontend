@@ -5,7 +5,7 @@
 				<b-btn variant="outline-success" @click="addSection">Add Section</b-btn>
 			</div>
 			<document-basic :odocument="odocument" :acsctn.sync="activedSection"></document-basic>
-			<document-sections :odocument="odocument" :acsctn.sync="activedSection"></document-sections>
+			<document-sections :odocument="odocument" :acsctn.sync="activedSection" v-if="odocument"></document-sections>
 		</div>
 		<div class="col-md-9">
 			<div v-if="activedSection === undefined">
@@ -14,10 +14,10 @@
 				</b-alert>
 			</div>
 			<div v-else-if="activedSection === 'basic'">
-				<basic-assignment :basic="odocument.basic"></basic-assignment>
+				<basic-assignment :basic="odocument.basic" v-if="odocument"></basic-assignment>
 			</div>
 			<div v-else>
-				<section-assignment :section="odocument.sections[activedSection]" :name="activedSection"></section-assignment>
+				<section-assignment :section="odocument.sections[activedSection]" :removeSection="deleteSection" :name="activedSection" v-if="odocument.sections"></section-assignment>
 			</div>
 		</div>
 	</div>
@@ -43,9 +43,14 @@ export default {
 				basic: [],
 				properties: {}
 			}
-			if (typeof this.odocument.sections === 'object') {
+			if (this.odocument && typeof this.odocument.sections === 'object') {
 				const keys = Object.keys(this.odocument.sections)
 				this.$set(this.odocument.sections, 'new' + keys.length, tpl)
+			}
+		},
+		deleteSection: function (name, event) {
+			if (confirm('Do you want to delete this section and its permission assignment?')) {
+				this.$set(this.odocument.sections, name, undefined)
 			}
 		}
 	},
