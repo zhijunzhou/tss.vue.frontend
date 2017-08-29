@@ -14,11 +14,8 @@
           </div>
           <permission-feature :features="permission.features" :groups="permission.groups"></permission-feature>
         </b-tab>
-        <b-tab title="Document" v-if="permission.groups">
-          <div class="text-right mb-2">
-            <b-button @click="save('document')">Save</b-button>          
-          </div>
-          <document-assignment :odocument="permission.document" :groups="permission.groups"></document-assignment>
+        <b-tab title="Document" v-if="permission.document">
+          <document-assignment :odocument="permission.document" :groups="permission.groups" :saveDocument="save"></document-assignment>
         </b-tab>
       </b-tabs>
     </b-card>
@@ -70,12 +67,13 @@ export default {
   },
   methods: {
     save: function (part) {
-      console.trace(this.permission)
-      this.$http.post('update/permission', this.permission, {
+      // the post json data is not the original data structure
+      // so we need to serialize the permission data,
+      // then let backend to deserialize the string
+      this.$http.post('update/permission', { permission: JSON.stringify(this.permission) }, {
         emulateJSON: true
       }).then((response) => {
-        console.log(response.body)
-        this.permission[part] = response.body[part]
+        this.permission[part] = response.body.data[part]
       })
     }
   },

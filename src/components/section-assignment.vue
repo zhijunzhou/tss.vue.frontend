@@ -5,9 +5,6 @@
 				<div class="col-md-6 text-left">
 					<h3>{{name}}</h3>
 				</div>
-				<div class="col-md-6 text-right mb-2">
-					<b-btn variant="outline-danger" @click="removeSection(name, $event)">Delete</b-btn>
-				</div>
 			</div>
 			<div class="card-text row" v-if="section && section.basic">
 				<b-card no-block>
@@ -46,7 +43,7 @@ import AddAssignment from '@/components/add-assignment'
 
 export default {
   name: 'SectionAssignment',
-  props: ['section', 'name', 'removeSection'],
+  props: ['section', 'name'],
   data () {
     return {
 			activedProp: undefined

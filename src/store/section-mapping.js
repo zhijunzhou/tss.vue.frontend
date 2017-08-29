@@ -101,7 +101,6 @@ export default {
     'name': 'soap',
     'path': 'solnStrategy.soap'
   },
-  /**
   '030301': {
     'title': 'Transformation Framework',
     'fullTitle': 'Transformation Framework',
@@ -246,42 +245,6 @@ export default {
     'name': 'fte-costing-summaries',
     'path': 'solnDesign.designSummaries.fteCostingSummaries.overview'
   },
-  '04040402': {
-    'title': 'Total Cost Summary by Year',
-    'fullTitle': 'Total Cost Summary by Year',
-    'name': 'na',
-    'path': 'na'
-  },
-  '04040403': {
-    'title': 'FTE Costs by Location',
-    'fullTitle': 'FTE Costs by Location',
-    'name': 'na',
-    'path': 'na'
-  },
-  '04040404': {
-    'title': 'FTE Counts by Service, Location',
-    'fullTitle': 'FTE Counts by Service, Location',
-    'name': 'na',
-    'path': 'na'
-  },
-  '04040405': {
-    'title': 'FTE Counts by Resource Category',
-    'fullTitle': 'FTE Counts by Resource Category',
-    'name': 'na',
-    'path': 'na'
-  },
-  '04040406': {
-    'title': 'FTE Costs by Service',
-    'fullTitle': 'FTE Costs by Service',
-    'name': 'na',
-    'path': 'na'
-  },
-  '04040407': {
-    'title': 'FTE Costs by Projects-Run',
-    'fullTitle': 'FTE Costs by Projects-Run',
-    'name': 'na',
-    'path': 'na'
-  },
   '0501': {
     'title': 'Key Assumptions',
     'fullTitle': 'Key Assumptions',
@@ -300,7 +263,6 @@ export default {
     'name': 'key-non-delivery-risks',
     'path': 'riskAssumptionMitigation.keyNonDeliveryRisks'
   },
-  */
   '0601': {
     'title': 'Required Documents',
     'fullTitle': 'Required Documents',

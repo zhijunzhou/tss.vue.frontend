@@ -75,7 +75,7 @@
 					</div>
 				</b-card>		
 			</b-collapse>
-		</b-list-group>		
+		</b-list-group>
 	</div>
 </template>
 
