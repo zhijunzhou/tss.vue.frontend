@@ -67,13 +67,9 @@ export default {
   },
   methods: {
     save: function (part) {
-      // the post json data is not the original data structure
-      // so we need to serialize the permission data,
-      // then let backend to deserialize the string
-      this.$http.post('update/permission', { permission: JSON.stringify(this.permission) }, {
-        emulateJSON: true
-      }).then((response) => {
-        this.permission[part] = response.body.data[part]
+      this.$http.post('update/permission', this.permission).then((response) => {
+        console.log(response)
+        this.permission[part] = response.body[part]
       })
     }
   },

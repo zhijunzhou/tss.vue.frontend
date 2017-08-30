@@ -20,6 +20,9 @@ Vue.http.options.root = 'https://localhost/tss/api'
 
 Vue.http.interceptors.push(function (request, next) {
   this.$store.state.showWokingDialog = true
+  if (request.method === 'POST') {
+    request.headers['Content-Type'] = 'application/json'
+  }
   next(function (response) {
     this.$store.state.showWokingDialog = false
   })
