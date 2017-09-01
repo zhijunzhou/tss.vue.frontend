@@ -38,7 +38,7 @@ export default {
   created () {
     this.$http.get('config/permission').then((response) => {
       const oppty = this.$store.state.options.opportunity
-      var sections = response.body.data.document.sections
+      const sections = response.body.data.document.sections
       for (const sid in oppty) {
         this.opportunity[oppty[sid].name] = {
           sid: sid,

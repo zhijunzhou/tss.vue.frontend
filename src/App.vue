@@ -33,4 +33,7 @@ html, body, #app {
 .card {
   width: 100%;
 }
+.ss-white {
+  color: #fff;
+}
 </style>

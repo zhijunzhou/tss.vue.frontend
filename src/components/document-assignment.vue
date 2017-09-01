@@ -87,8 +87,10 @@ export default {
 <style>
 	.left-menu ul>li>a:focus {
 		background: lightgray;
+		color: #fff;
 	}
 	.left-menu ul>li>a:hover {
 		background: darkgray;
+		color: #fff;
 	}
 </style>

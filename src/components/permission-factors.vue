@@ -2,12 +2,14 @@
 	<div v-if="factor">
 		<b-list-group>
 			<b-list-group-item>
-				<div class="col-md-6 text-left">
-						<b>{{factor.permission}} / {{factor.priority}} / {{factor.comment}}</b>		
-				</div>
-				<div class="col-md-6 text-right">
-					<b-btn variant="outline-danger" @click="deleteAssignment(idx, $event)">Delete</b-btn>
-					<b-btn v-b-toggle="'collapse_' + idx">Toggle</b-btn>
+				<div class="row">
+					<div class="col-md-6 text-left">
+							<b>{{factor.permission}} / {{factor.priority}} / {{factor.comment}}</b>		
+					</div>
+					<div class="col-md-6 text-right">
+						<b-btn variant="outline-danger" @click="deleteAssignment(idx, $event)">Delete</b-btn>
+						<b-btn v-b-toggle="'collapse_' + idx">Toggle</b-btn>
+					</div>
 				</div>
 			</b-list-group-item>
 			<b-collapse :id="'collapse_' + idx">
