@@ -10,7 +10,7 @@
 					</b-input-group>
 			</div>
 			<div class="col-lg-4 text-right">
-				<b-btn @click="addSection">Add Section</b-btn>&nbsp;
+				<b-btn variant="outline-primary" @click="addSection">Add Section</b-btn>&nbsp;
 				<b-btn @click="saveDocument('document', $event)" variant="outline-success">Save</b-btn>    
 			</div>
 		</div>

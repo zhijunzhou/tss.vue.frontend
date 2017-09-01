@@ -4,13 +4,13 @@
       <b-tabs lazy card ref="tabs">
         <b-tab title="Groups" v-if="permission.groups">  
           <div class="text-right mb-2">
-            <b-button @click="save('groups')">Save</b-button>      
+            <b-button variant="outline-success" @click="save('groups')">Save</b-button>      
           </div>
           <permission-group :groups="permission.groups"></permission-group>
         </b-tab>
         <b-tab title="Features" v-if="permission.features">
           <div class="text-right mb-2">
-            <b-button @click="save('features')">Save</b-button>           
+            <b-button variant="outline-success" @click="save('features')">Save</b-button>           
           </div>
           <permission-feature :features="permission.features" :groups="permission.groups"></permission-feature>
         </b-tab>

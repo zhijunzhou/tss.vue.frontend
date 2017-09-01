@@ -8,7 +8,7 @@
 					</div>
 					<div class="col-md-6 text-right">
 						<b-btn variant="outline-danger" @click="deleteAssignment(idx, $event)">Delete</b-btn>
-						<b-btn v-b-toggle="'collapse_' + idx">Toggle</b-btn>
+						<b-btn variant="outline-primary" v-b-toggle="'collapse_' + idx">Toggle</b-btn>
 					</div>
 				</div>
 			</b-list-group-item>
