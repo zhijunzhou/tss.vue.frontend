@@ -24,6 +24,9 @@
         </div>
       </template>
     </b-table>
+    <div>
+      <b-pagination align="center" size="md" :total-rows="totalRows" :per-page="perPage" v-model="currentPage" />
+    </div>
   </div>
 </template>
 
