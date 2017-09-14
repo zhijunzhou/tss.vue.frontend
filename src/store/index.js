@@ -123,6 +123,10 @@ const store = new Vuex.Store({
           reports: {
             title: 'Reports',
             link: ''
+          },
+          amap: {
+            title: 'Amap',
+            link: '/amap'
           }
         }
       },

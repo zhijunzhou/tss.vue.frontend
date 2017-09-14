@@ -11,7 +11,9 @@ import store from './store'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import BootstrapVue from 'bootstrap-vue'
+import AMap from 'vue-amap'
 
+Vue.use(AMap)
 Vue.use(VueResource)
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
@@ -26,6 +28,21 @@ Vue.http.interceptors.push(function (request, next) {
   next(function (response) {
     this.$store.state.showWokingDialog = false
   })
+})
+
+AMap.initAMapApiLoader({
+  key: '79bcc96815759314027175e1a4c63c4b',
+  plugin: [
+    'AMap.Autocomplete',
+    'AMap.PlaceSearch',
+    'AMap.Scale',
+    'AMap.OverView',
+    'AMap.ToolBar',
+    'AMap.MapType',
+    'AMap.PolyEditor',
+    'AMap.CircleEditor',
+    'AMap.Marker'
+  ]
 })
 
 new Vue({

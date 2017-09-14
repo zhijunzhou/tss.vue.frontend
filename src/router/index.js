@@ -5,6 +5,7 @@ import CSHome from '@/views/CSHome'
 import AllOppty from '@/views/AllOppty'
 import MyOppty from '@/views/MyOppty'
 import Permission from '@/views/Permission'
+import Geo from '@/views/Geo'
 
 Vue.use(Router)
 
@@ -30,6 +31,10 @@ export default new Router({
       path: '/permission/definition',
       name: 'permission',
       component: Permission
+    }, {
+      path: '/amap',
+      name: 'amap',
+      component: Geo
     }
   ]
 })
