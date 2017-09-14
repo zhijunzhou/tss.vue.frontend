@@ -36,4 +36,16 @@ html, body, #app {
 .ss-white {
   color: #fff;
 }
+.card-body {
+  padding: 0;
+}
+.tab-content {
+  padding: 1.25rem;
+}
+article {
+  padding: 1.25rem;
+}
+.collapse .card-body {
+  padding: 1.25rem;
+}
 </style>
