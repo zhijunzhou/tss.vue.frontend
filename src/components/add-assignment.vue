@@ -8,23 +8,23 @@
 export default {
   name: 'AddAssignment',
   props: ['node'],
-	methods: {
-		addPermissionAssignment: function () {
-			const tpl = {
-				'permission': 'write',
-				'priority': 0,
-				'govTrack': [],
-				'pursuitClassfication': [],
-				'dxcSolnPath': [],
-				'involvedOfferingFamilies': [],
-				'gbu': [],
-				'salesStage': [],
-				'role': [],
-				'group': [],
-				'comment': null
-			}
-			this.node.push(tpl)
-		}
-	}
+  methods: {
+    addPermissionAssignment: function () {
+      const tpl = {
+        'permission': 'write',
+        'priority': 0,
+        'govTrack': [],
+        'pursuitClassfication': [],
+        'dxcSolnPath': [],
+        'involvedOfferingFamilies': [],
+        'gbu': [],
+        'salesStage': [],
+        'role': [],
+        'group': [],
+        'comment': null
+      }
+      this.node.push(tpl)
+    }
+  }
 }
 </script>

@@ -8,14 +8,13 @@
         :fields="fields"
         :current-page="currentPage"
         :per-page="perPage"
-
     >
-      <template slot="opptyId" scope="row">{{row.value}}</template>
-      <template slot="opptyName" scope="row">{{row.value}}</template>
-      <template slot="clientName" scope="row">{{row.value}}</template>
-      <template slot="dealStatus" scope="row">{{row.value}}</template>
-      <template slot="salesStage" scope="row">{{row.value}}</template>
-      <template slot="solnStatus" scope="data">
+      <template slot="opptyId" slot-scope="row">{{row.value}}</template>
+      <template slot="opptyName" slot-scope="row">{{row.value}}</template>
+      <template slot="clientName" slot-scope="row">{{row.value}}</template>
+      <template slot="dealStatus" slot-scope="row">{{row.value}}</template>
+      <template slot="salesStage" slot-scope="row">{{row.value}}</template>
+      <template slot="solnStatus" slot-scope="data">
         {{data.item.statusColor}} {{data.item.statusRating}}
       </template>
     </b-table>

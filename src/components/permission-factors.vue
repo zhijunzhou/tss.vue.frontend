@@ -87,18 +87,18 @@ import CheckboxGroup from '@/components/checkbox-group'
 export default {
   name: 'PermissionFactors',
   props: ['factor', 'idx', 'deleteAssignment'],
-	data () {
+  data () {
     return {
       pursuitCatalogs: this.$store.state.options.pursuitCatalogs,
-			salesStages: this.$store.state.options.salesStages,
-			dxcSolnPaths: this.$store.state.options.dxcSolnPaths,
-			OfferingFamilies: this.$store.state.options.OfferingFamilies,
-			roles: this.$store.state.options.roles,
-			groups: this.$store.state.options.groups,
-			permissions: this.$store.state.options.permissions
+      salesStages: this.$store.state.options.salesStages,
+      dxcSolnPaths: this.$store.state.options.dxcSolnPaths,
+      OfferingFamilies: this.$store.state.options.OfferingFamilies,
+      roles: this.$store.state.options.roles,
+      groups: this.$store.state.options.groups,
+      permissions: this.$store.state.options.permissions
     }
   },
-	components: {
+  components: {
     CheckboxGroup
   }
 }

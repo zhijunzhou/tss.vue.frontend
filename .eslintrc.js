@@ -15,7 +15,7 @@ module.exports = {
   "rules": {
     'vue/jsx-uses-vars': 2,
     // enable additional rules
-    "indent": ["warn", 2],
+    "indent": [2, 2],
     "semi": ["error", "never"],
 
     // override default options for rules from base configurations

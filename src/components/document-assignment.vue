@@ -47,40 +47,40 @@ export default {
   props: ['groups', 'odocument', 'saveDocument'],
   data () {
     return {
-			activedSection: undefined,
-			deletingName: undefined
-		}
-	},
-	methods: {
-		addSection: function () {
-			const tpl = {
-				basic: [],
-				properties: {}
-			}
-			if (this.odocument && typeof this.odocument.sections === 'object') {
-				const keys = Object.keys(this.odocument.sections)
-				this.$set(this.odocument.sections, 'new' + keys.length, tpl)
-			}
-		},
-		deleteSection: function (name, event) {
-			console.log(this.odocument)
-			if (name) {
-				if (confirm('Do you want to delete "' + name + '" and its permission assignment?')) {
-					this.$set(this.odocument.sections, name, undefined)
-					delete this.odocument.sections[name]
-					delete this.$store.state.options.opportunity[name]
-					console.log(this.odocument)
-				}
-			} else {
-				alert('delete nothing.')
-			}
-		}
-	},
+      activedSection: undefined,
+      deletingName: undefined
+    }
+  },
+  methods: {
+    addSection: function () {
+      const tpl = {
+        basic: [],
+        properties: {}
+      }
+      if (this.odocument && typeof this.odocument.sections === 'object') {
+        const keys = Object.keys(this.odocument.sections)
+        this.$set(this.odocument.sections, 'new' + keys.length, tpl)
+      }
+    },
+    deleteSection: function (name, event) {
+      console.log(this.odocument)
+      if (name) {
+        if (confirm('Do you want to delete "' + name + '" and its permission assignment?')) {
+          this.$set(this.odocument.sections, name, undefined)
+          delete this.odocument.sections[name]
+          delete this.$store.state.options.opportunity[name]
+          console.log(this.odocument)
+        }
+      } else {
+        alert('delete nothing.')
+      }
+    }
+  },
   components: {
     DocumentBasic,
     DocumentSections,
-		SectionAssignment,
-		BasicAssignment
+    SectionAssignment,
+    BasicAssignment
   }
 }
 </script>

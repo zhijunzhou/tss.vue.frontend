@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div v-for="(factor, idx) in basic" class="mb-2">		
+		<div v-for="(factor, idx) in basic" class="mb-2" :key="idx">		
 			<permission-factors :factor="factor" :idx="idx" :deleteAssignment="remove"></permission-factors>
 		</div>
 		<add-assignment :node="basic"></add-assignment>
@@ -14,16 +14,16 @@ import AddAssignment from '@/components/add-assignment'
 export default {
   name: 'BasicAssignment',
   props: ['basic'],
-	components: {
+  components: {
     PermissionFactors,
-		AddAssignment
+    AddAssignment
   },
-	methods: {
-		remove: function (idx, event) {
-			if (confirm('Are you sure to delete this assignment?')) {
-				this.basic.splice(idx, 1)
-			}
-		}
-	}
+  methods: {
+    remove: function (idx, event) {
+      if (confirm('Are you sure to delete this assignment?')) {
+        this.basic.splice(idx, 1)
+      }
+    }
+  }
 }
 </script>

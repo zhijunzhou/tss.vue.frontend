@@ -10,7 +10,7 @@
 export default {
   name: 'SectionProperties',
   props: ['properties', 'actProp'],
-	methods: {
+  methods: {
     switchProp: function (p, event) {
       this.$emit('update:actProp', p)
     }

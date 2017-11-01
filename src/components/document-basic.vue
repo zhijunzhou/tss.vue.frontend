@@ -11,7 +11,7 @@
 export default {
   name: 'DocumentBasic',
   props: ['odocument'],
-	methods: {
+  methods: {
     switchSection: function (name, event) {
       this.$emit('update:acsctn', name)
     }

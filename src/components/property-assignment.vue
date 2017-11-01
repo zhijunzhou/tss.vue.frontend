@@ -3,7 +3,7 @@
 		<b-card :title="actProp" tag="article" class="mb-12">
 			<div class="card-text row">
 				<b-card no-block>					
-					<div v-for="(factor, idx) in property" class="mb-2">
+					<div v-for="(factor, idx) in property" class="mb-2" :key="idx">
 						<permission-factors :factor="factor" :idx="idx" :deleteAssignment="remove"></permission-factors>
 					</div>
 					<add-assignment :node="property"></add-assignment>
@@ -20,16 +20,16 @@ import AddAssignment from '@/components/add-assignment'
 export default {
   name: 'PropertyAssignment',
   props: ['property', 'actProp'],
-	components: {
+  components: {
     PermissionFactors,
-		AddAssignment
+    AddAssignment
   },
-	methods: {
-		remove: function (idx, event) {
-			if (confirm('Are you sure to delete this assignment?')) {
-				this.property.splice(idx, 1)
-			}
-		}
-	}
+  methods: {
+    remove: function (idx, event) {
+      if (confirm('Are you sure to delete this assignment?')) {
+        this.property.splice(idx, 1)
+      }
+    }
+  }
 }
 </script>

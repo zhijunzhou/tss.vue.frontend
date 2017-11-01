@@ -15,23 +15,23 @@
 export default {
   name: 'DocumentSections',
   props: ['odocument', 'acsctn'],
-	data () {
+  data () {
     return {
-			opportunity: {}
+      opportunity: {}
     }
   },
-	created () {
-		const oppty = this.$store.state.options.opportunity
+  created () {
+    const oppty = this.$store.state.options.opportunity
 
-		for (const sid in oppty) {
-			this.opportunity[oppty[sid].name] = {
-				sid: sid,
-				title: oppty[sid].title,
-				fullTitle: oppty[sid].fullTitle,
-				path: oppty[sid].path
-			}
-		}
-	},
+    for (const sid in oppty) {
+      this.opportunity[oppty[sid].name] = {
+        sid: sid,
+        title: oppty[sid].title,
+        fullTitle: oppty[sid].fullTitle,
+        path: oppty[sid].path
+      }
+    }
+  },
   methods: {
     switchSection: function (name, event) {
       this.$emit('update:acsctn', name)

@@ -6,6 +6,7 @@ import AllOppty from '@/views/AllOppty'
 import MyOppty from '@/views/MyOppty'
 import Permission from '@/views/Permission'
 import Geo from '@/views/Geo'
+import Reports from '@/views/Reports'
 
 Vue.use(Router)
 
@@ -35,6 +36,10 @@ export default new Router({
       path: '/amap',
       name: 'amap',
       component: Geo
+    }, {
+      path: '/reports',
+      name: 'Reports',
+      component: Reports
     }
   ]
 })

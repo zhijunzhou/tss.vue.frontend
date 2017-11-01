@@ -46,28 +46,28 @@ export default {
   props: ['section', 'name'],
   data () {
     return {
-			activedProp: undefined
-		}
-	},
-	methods: {
-		addProperty: function () {
-			var keys = []
-			if (typeof this.section.properties === 'object') {
-				keys = Object.keys(this.section.properties)
-				this.$set(this.section.properties, 'new' + keys.length, [this.$store.state.assignmentTempl])
-			}
-		},
-		remove: function (idx, event) {
-			if (confirm('Are you sure to delete this assignment?')) {
-				this.section.basic.splice(idx, 1)
-			}
-		}
-	},
-	components: {
+      activedProp: undefined
+    }
+  },
+  methods: {
+    addProperty: function () {
+      var keys = []
+      if (typeof this.section.properties === 'object') {
+        keys = Object.keys(this.section.properties)
+        this.$set(this.section.properties, 'new' + keys.length, [this.$store.state.assignmentTempl])
+      }
+    },
+    remove: function (idx, event) {
+      if (confirm('Are you sure to delete this assignment?')) {
+        this.section.basic.splice(idx, 1)
+      }
+    }
+  },
+  components: {
     PermissionFactors,
-		SectionProperties,
-		PropertyAssignment,
-		AddAssignment
+    SectionProperties,
+    PropertyAssignment,
+    AddAssignment
   }
 }
 </script>

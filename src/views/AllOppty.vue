@@ -10,15 +10,15 @@
         :per-page="perPage"
 
     >
-      <template slot="opptyId" scope="row">{{row.value}}</template>
-      <template slot="opptyName" scope="row">{{row.value}}</template>
-      <template slot="clientName" scope="row">{{row.value}}</template>
-      <template slot="bidManager" scope="row">
+      <template slot="opptyId" slot-scope="row">{{row.value}}</template>
+      <template slot="opptyName" slot-scope="row">{{row.value}}</template>
+      <template slot="clientName" slot-scope="row">{{row.value}}</template>
+      <template slot="bidManager" slot-scope="row">
         <div v-for="user in row.value" :key="user.name">
           {{user.title}}
         </div>
       </template>
-      <template slot="solutionConsulantOrLPA" scope="row">
+      <template slot="solutionConsulantOrLPA" slot-scope="row">
         <div v-for="user in row.value" :key="user.name">
           {{user.title}}
         </div>
